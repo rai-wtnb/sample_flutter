@@ -25,3 +25,8 @@ flutter:
 
   assets:
     - images/
+
+  fonts:
+  - family: Raleway
+    fonts:
+    - asset: fonts/Raleway-VariableFont_wght.ttf
