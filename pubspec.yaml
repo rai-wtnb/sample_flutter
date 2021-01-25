@@ -1,23 +1,20 @@
-name: sample_flutter
-description: A new Flutter project.
-
-publish_to: 'none' 
+name: magic_8_ball
+description: A new Flutter application.
 
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.0
+  cupertino_icons: ^0.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  material: ^1.0.0+1
 
 flutter:
 
@@ -25,8 +22,3 @@ flutter:
 
   assets:
     - images/
-
-  fonts:
-  - family: Raleway
-    fonts:
-    - asset: fonts/Raleway-VariableFont_wght.ttf

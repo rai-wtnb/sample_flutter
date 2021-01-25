@@ -1,96 +1,46 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(
+      MaterialApp(
+        home: BallPage(),
+      ),
+    );
 
-class MyApp extends StatelessWidget {
+class BallPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.blueGrey,
-        body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage('images/prof.png'),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                "Rai Watanabe",
-                style: TextStyle(
-                  fontFamily: 'Raleway',
-                  fontSize: 40,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                "Web Developer",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Raleway',
-                  letterSpacing: 2,
-                  color: Colors.white,
-                ),
-              ),
-              SizedBox(
-                height: 40,
-                width: 160,
-                child: Divider(
-                  color: Colors.white,
-                ),
-              ),
-              Card(
-                color: Colors.white,
-                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-                child: Padding(
-                  padding: EdgeInsets.all(8),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.phone,
-                      size: 30,
-                      color: Colors.blueGrey,
-                    ),
-                    title: Text(
-                      "+44 123 456 789",
-                      style: TextStyle(
-                        color: Colors.blueGrey,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Card(
-                color: Colors.white,
-                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-                child: Padding(
-                  padding: EdgeInsets.all(8),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.email,
-                      size: 30,
-                      color: Colors.blueGrey,
-                    ),
-                    title: Text(
-                      "aaa@aaa.com",
-                      style: TextStyle(
-                        color: Colors.blueGrey,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+    return Scaffold(
+      backgroundColor: Colors.blue,
+      appBar: AppBar(
+        backgroundColor: Colors.blue[900],
+        title: Text('Ask Me Anything'),
+      ),
+      body: Ball(),
+    );
+  }
+}
+
+class Ball extends StatefulWidget {
+  @override
+  _BallState createState() => _BallState();
+}
+
+class _BallState extends State<Ball> {
+  int ballNum = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        child: FlatButton(
+          onPressed: () {
+            setState(() {
+              ballNum = Random().nextInt(5) + 1;
+              print(ballNum);
+            });
+          },
+          child: Image.asset('images/ball$ballNum.png'),
         ),
       ),
     );
